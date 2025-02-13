@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Valentine's Day!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        text-align: center;
+        font-family: 'Merriweather', serif;
+        font-weight: 400;
+        font-style: normal;
+        background: url('img/bg1.jpg') no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+
+      img {
+        width: 400px;
+        height: auto;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      /* h1 {
+        color: white;
+        font-family: 'Dancing Script', serif;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+      } */
+
+      h1 {
+        font-family: 'Dancing Script', cursive; /* Romantic Calligraphy */
+        font-size: 40px;
+        text-align: center;
+        color: white;
+        background: linear-gradient(
+          45deg,
+          #ff4d6d,
+          #ff758f
+        ); /* Soft Red-Pink Gradient */
+        padding: 20px 40px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 15px rgba(255, 105, 135, 0.8); /* Soft Glow */
+        display: inline-block;
+        margin-top: 20px;
+        /* border: 3px solid white;  */
+        animation: pop 0.5s ease-in-out;
+      }
+
+      /* Cool animation to make it pop */
+      @keyframes pop {
+        0% {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="img/gojo2.gif" alt="Yay GIF" />
+      <h1>Yay! ❤️ Happy Valentine's Day!</h1>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <!-- <script>
+      function startConfetti() {
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
+      }
+
+      // Start confetti when page loads
+      window.onload = startConfetti;
+    </script> -->
+
+    <script>
+      function fireConfetti() {
+        // var pineapple = confetti.shapeFromText({ text: '1', scalar });
+
+        var duration = 30 * 1000;
+        var animationEnd = Date.now() + duration;
+        var defaults = {
+          startVelocity: 30,
+          spread: 360,
+          ticks: 60,
+          zIndex: 1000,
+          scalar: 1.5,
+          // shapes: [pineapple],
+        };
+
+        function randomInRange(min, max) {
+          return Math.random() * (max - min) + min;
+        }
+
+        var interval = setInterval(function () {
+          var timeLeft = animationEnd - Date.now();
+
+          if (timeLeft <= 0) {
+            return clearInterval(interval);
+          }
+
+          confetti({
+            ...defaults,
+            particleCount: 50,
+            origin: { x: randomInRange(0.1, 0.9), y: Math.random() - 0.2 },
+          });
+        }, 250);
+      }
+
+      window.onload = fireConfetti;
+    </script>
+  </body>
+</html>
